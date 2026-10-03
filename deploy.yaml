@@ -18,8 +18,8 @@ spec:
         env:
         - name: SPRING_PROFILES_ACTIVE
           value: production-microservice
-        # Using this as a way to avoid having to bother pushing images to registry.
-        imagePullPolicy: Never
+        # BUILD_ID makes every tag unique, so a pull only ever happens once per build.
+        imagePullPolicy: IfNotPresent
         readinessProbe:
           httpGet:
             path: /
